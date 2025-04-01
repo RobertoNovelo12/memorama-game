@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones - Memorama</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .light {
+            background-color: #f4f7fc;
+            color: #263238;
+            --card-bg: #ffffff;
+            --primary-color: #ff4081;
+            --text-color: #263238;
+            --step-bg: rgba(255, 64, 129, 0.1);
+        }
+        
+        .dark {
+            background-color: #1c1c1c;
+            color: #fafafa;
+            --card-bg: #424242;
+            --primary-color: #ff4081;
+            --text-color: #fafafa;
+            --step-bg: rgba(255, 64, 129, 0.2);
+        }
+        
+        
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        
+        .back-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .control-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .control-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        
+        .instructions-page {
+            max-width: 800px;
+            margin: 80px auto 40px;
+            padding: 20px;
+        }
+        
+        .instructions-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        
+        .instruction-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--step-bg);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        
+        .card-example {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            gap: 15px;
+        }
+        
+        .example-card {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+        
+        .card-back-example {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .card-front-example {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        
+        .dark .control-icon {
+            filter: invert(1) brightness(1.5);
+        }
+
+        .github-footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+    .github-footer a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--color-text-light);
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 12px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 1px 3px black;
+    }
+
+    .github-footer a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    }
+        
+        .github-icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .dark-mode .github-icon {
+            filter: invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .github-footer a span {
+        display: none;
+        }
+        
+        .github-footer a {
+            padding: 8px;
+        }
+}
+    </style>
+</head>
+<body class="light">
+
+    
+    <div class="top-controls">
+        
+        <a href="index.html" class="back-button">
+            <img src="image/back-icon.svg" alt="Volver" class="control-icon">
+        </a>
+        
+        
+        <img id="theme-toggle" class="control-icon" src="image/moon-icon.svg" alt="Modo oscuro">
+    </div>
+
+    
+    <main class="instructions-page">
+        
+        <div class="instructions-container">
+            <h1 class="instructions-title">Cómo jugar Memorama</h1>
+            
+            <div class="instructions-content">
+                <div class="instruction-step">
+                    <span class="step-number">1</span>
+                    <p class="step-text">Selecciona si quieres jugar solo o con un amigo desde la pantalla principal.</p>
+                </div>
+                
+                
+                <div class="card-example">
+                    <div class="example-card card-back-example">❔</div>
+                    <div class="example-card card-front-example">🍎</div>
+                </div>
+                
+                <div class="instruction-step">
+                    <span class="step-number">2</span>
+                    <p class="step-text">Haz clic en una carta para voltearla y revelar su contenido.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <span class="step-number">3</span>
+                    <p class="step-text">Encuentra su pareja haciendo clic en otra carta con el mismo símbolo.</p>
+                </div>
+                
+                
+                <div class="card-example">
+                    <div class="example-card card-front-example">🍎</div>
+                    <div style="display: flex; align-items: center; font-size: 1.5rem;">→</div>
+                    <div class="example-card card-front-example" style="background-color: #00e676; color: white;">🍎</div>
+                </div>
+                
+                <div class="instruction-step">
+                    <span class="step-number">4</span>
+                    <p class="step-text">Si juegas con 2 jugadores, los turnos se alternan automáticamente cuando no encuentras un par.</p>
+                </div>
+                
+                <div class="instruction-step">
+                    <span class="step-number">5</span>
+                    <p class="step-text">¡Gana quien encuentre más pares! En modo individual, trata de completar el juego en el menor tiempo posible.</p>
+                </div>
+                
+                
+                <div class="card-example" style="justify-content: space-around;">
+                    <div style="text-align: center;">
+                        <div class="example-card card-front-example">👤</div>
+                        <p style="margin-top: 5px; color: var(--text-color);">1 Jugador</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="example-card card-front-example">👥</div>
+                        <p style="margin-top: 5px; color: var(--text-color);">2 Jugadores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="github-footer">
+            <a href="https://github.com/RobertoNovelo12" target="_blank" rel="noopener noreferrer">
+                <img src="image/github-icon.svg" alt="GitHub" class="github-icon">
+                <span>RobertoNovelo12</span>
+            </a>
+        </div>
+    </main>
+
+    
+    <script>
+        
+        function applyTheme(isDark) {
+            document.body.classList.remove('light', 'dark');
+            document.body.classList.add(isDark ? 'dark' : 'light');
+            
+            
+            const themeIcon = document.getElementById('theme-toggle');
+            themeIcon.src = isDark ? 'image/sun-icon.svg' : 'image/moon-icon.svg';
+            
+            
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme ? savedTheme === 'dark' : prefersDark;
+        
+        applyTheme(initialTheme);
+        
+        
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark');
+            applyTheme(!isDark);
+        });
+    </script>
+</body>
+</html>

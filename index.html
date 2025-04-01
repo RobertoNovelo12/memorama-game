@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorama</title>
+    <script>
+        
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.className = initialTheme;
+        })();
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    
+    <div class="top-controls">
+        
+        <div class="left-controls">
+            
+            <img id="go-to-instructions" class="control-icon" src="image/help-icon.svg" alt="Instrucciones">
+            
+            
+            <button id="back-button" class="hidden">
+                <img src="image/back-icon.svg" alt="Regresar" class="control-icon">
+            </button>
+        </div>
+        
+        
+        <div class="right-controls">
+            
+            <img id="theme-toggle" class="control-icon" src="image/moon-icon.svg" alt="Modo oscuro">
+            
+            
+            <img id="reset-game" class="control-icon" src="image/reload-icon.svg" alt="Reiniciar">
+        </div>
+    </div>
+
+    
+    <div id="start-screen">
+        <h1>Memorama</h1>
+        <h2>Selecciona el modo de juego</h2>
+        <button id="one-player">1 Jugador</button>
+        <button id="two-players">2 Jugadores</button>
+    </div>
+
+    
+    <div id="game-container" class="hidden">
+        <div id="turn-display"></div>
+        <h2 id="turn-indicator"></h2>
+        <div id="board"></div>
+    </div>
+
+    
+    <div id="game-stats" style="display: none;">
+        <div id="player1-stats" class="player-stats"></div>
+        <div id="player2-stats" class="player-stats"></div>
+        <div id="timer" class="timer"></div>
+    </div>
+
+    <div class="github-footer">
+        <a href="https://github.com/RobertoNovelo12" target="_blank" rel="noopener noreferrer">
+            <img src="image/github-icon.svg" alt="GitHub" class="github-icon">
+            <span>RobertoNovelo12</span>
+        </a>
+    </div>
+
+    
+    <script src="js/theme-logic.js"></script>
+    <script src="js/main.js" type="module"></script>
+
+</body>
+</html>
