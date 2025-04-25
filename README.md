@@ -13,7 +13,7 @@
 
 Puedes probar el juego directamente en tu navegador a través del siguiente enlace:
 
-👉 [memorama-game.vercel.app](https://memorama-game.vercel.app)
+👉 [memorama-game.vercel.app](memorama-game-ruby.vercel.app)
 
 ## 📂 Estructura del Proyecto
 
